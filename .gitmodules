@@ -1,0 +1,6 @@
+[submodule "01_Tokenisation/UD_Japanese-GSD"]
+	path = 01_Tokenisation/UD_Japanese-GSD
+	url = https://github.com/UniversalDependencies/UD_Japanese-GSD.git
+[submodule "01_Tokenisation/WikiExtractor"]
+	path = 01_Tokenisation/WikiExtractor
+	url = https://github.com/apertium/WikiExtractor.git
