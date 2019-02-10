@@ -7,3 +7,6 @@
 [submodule "00_Unix/WikiExtractor"]
 	path = 00_Unix/WikiExtractor
 	url = https://github.com/apertium/WikiExtractor.git
+[submodule "01_Tokenisation/WER-in-python"]
+	path = 01_Tokenisation/WER-in-python
+	url = https://github.com/zszyellow/WER-in-python.git
