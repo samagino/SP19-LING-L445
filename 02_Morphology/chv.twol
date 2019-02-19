@@ -1,0 +1,43 @@
+Alphabet
+  а ӑ е ё ӗ и о у ӳ ы э ю я б в г д ж з к л м н п р с ҫ т ф х ц ч ш щ й ь ъ
+  А Ӑ Е Ё Ӗ И О У Ӳ Ы Э Ю Я Б В Г Д Ж З К Л М Н П Р С Ҫ Т Ф Х Ц Ч Ш Щ Й Ь Ъ 
+ %{A%}:а %{A%}:е
+ %{М%}:м %{М%}:0
+ !%{М%}:%!
+ %{Ӑ%}:ӑ %{Ӑ%}:ӗ %{Ӑ%}:0
+ %{ъ%}:0
+ %>:0 %>:%> ! for debugging purposes
+;
+
+Sets
+
+BackVow = ӑ а ы о у я ё ю %{ъ%} ;
+
+FrontVow = ӗ э и ӳ е ;
+
+Cns = б в г д ж з к л м н п р с ҫ т ф х ц ч ш щ й ь ъ ;
+
+ArchiCns = %{М%} ;
+
+ArchiVow = %{Ӑ%} ;
+
+Rules
+
+"Back vowel harmony for archiphoneme {A}"
+%{A%}:а <=> BackVow: [ Cns: | %>: ]+ _ ;
+
+"Back vowel harmony for archiphoneme {Ӑ}"
+%{Ӑ%}:ӑ <=> BackVow: [ ArchiCns: | Cns: | %>: ]+ _ ;
+        except
+                %{М%}: %>: _ н ;
+                [ BackVow: | FrontVow: ] %>: _ ;
+
+"Null surface {Ӑ} in plural genetive and after stem vowel"
+%{Ӑ%}:0 <=> %{М%}: %>: _ н ;
+            [ BackVow: | FrontVow: ] %>: _ ;
+
+"Null surface %{М%} if {Ӑ}н follows"
+%{М%}:0 <=> _ %>: ArchiVow: н ;
+
+"Remove morpheme boundaries"
+%>:0 <=> _ ;

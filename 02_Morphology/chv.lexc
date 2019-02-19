@@ -1,0 +1,57 @@
+Multichar_Symbols
+
+%<n%>                   ! Noun
+%<pl%>                  ! Plural
+%<nom%>                 ! Nominative
+%<ins%>                 ! Instrumental
+%<gen%>                 ! Genetive
+%<abl%>                 ! Ablative
+
+%<Der_лӑх%>             ! -лӑх derivational suffix (N -> N)
+
+%>                      ! Morpheme boundary
+
+%{A%}                   ! Archiphoneme [а] or [е]
+%{М%}                   ! Archiphoneme [м] or [0]
+%{Ӑ%}                   ! Archiphoneme [ӑ] or [ӗ] or [0]
+%{ъ%}                   ! pseudo back vowel [0]
+
+LEXICON Root
+
+Nouns ;
+
+LEXICON CASES
+
+%<nom%>:%>       # ;    ! nominative
+%<gen%>:%>%{Ӑ%}н # ;    ! genetive
+%<ins%>:%>п%{A%} # ;    ! instrumental
+
+LEXICON PLURAL
+
+                 CASES ; ! ¬ plural
+%<pl%>:%>се%{М%} CASES ; ! plural
+
+LEXICON SUBST
+
+PLURAL ;
+
+LEXICON DER-N
+
+%<Der_лӑх%>:%>л%{Ӑ%}х SUBST "weight: 1.0" ;
+
+LEXICON N
+
+%<n%>: SUBST ;
+%<n%>: DER-N ;
+
+LEXICON Nouns
+
+урам:урам N ;                   ! "street"
+пахча:пахча N ;                 ! "garden"
+хула:хула N ;                   ! "city"
+канаш:канаш N ;                 ! "council"
+тӗс:тӗс N ;                     ! "aspect"
+патша:патша N ;                 ! "tsar, king, caesar or something"
+куҫ:куҫ N ;                     ! "eye"
+патшалӑх:патшалӑх N ;           ! "state"
+специалист:специалист%{ъ%} N ;  ! "specialist"
