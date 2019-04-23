@@ -37,7 +37,7 @@ def makeDictionary(filePath):
             #    character, then it's a word (otherwise waste memory) (second
             #    condition)
             # don't want to populate dictionary with numbers because in maxmatch
-            #    I assume all numbers are words (third condition)
+            #    I assume all numbers are words (second condition)
             if fields[0].isdigit() and (len(fields[1]) > 1) and (not fields[1].isdigit()):
                 # the second collumn in word entries contain the word literal
                 dictionary.add(fields[1])
@@ -81,6 +81,7 @@ if len(sys.argv) != 2 :
     print('error: not enough args')
     print('maxmatch.py needs a file make a dictionary from.')
     print('usage:\n\tpython maxmatch.py path/to/file')
+    print('maxmatch.py reads the text you want to segment from stdin')
 else :
     dictionary = makeDictionary(sys.argv[1])
 
